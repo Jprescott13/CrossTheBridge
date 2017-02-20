@@ -14,39 +14,39 @@ public class ComparingCards {
 		
 	}
 	
-	public static void compareValue(PlayingCard firstCard, PlayingCard secondCard){
-		if(secondCard.getValue() > firstCard.getValue() ){
-			isHigher = true;
-		}
-		if (secondCard.getValue() < firstCard.getValue() ) {
-			isLower = true;
-		}	
-	}
-	
-	public void compareColor(PlayingCard secondCard) {
-		if(secondCard.getSuit() == "Diamonds" || secondCard.getSuit() == "Hearts" ){
-			isRed = true;
-		}
-		if (secondCard.getSuit() == "Spades"  || secondCard.getSuit() == "Clubs"){
-			isBlack = true;
-		}
-	}
-	
-	public void compareOddEvenFace(PlayingCard secondCard) {
-		if(secondCard.getValue() <= 10){
-			if(secondCard.getValue() % 2 == 0){
-				isEven = true;
-			}if(secondCard.getValue() %2 != 0) {
-				isOdd = true;
-			}else {
-				System.out.println("NOT ODD OR EVEN -- YOU HAVE AN ISSUE");
-			}
-		}if (secondCard.getValue() >10 ) {
-			isFace = true;
-		}else {
-			System.out.println("NOT ODD, EVEN, OR FACE -- YOU HAVE A MASSIVE ISSUE");
-		}
-	}
+//	public static void compareValue(PlayingCard firstCard, PlayingCard secondCard){
+//		if(secondCard.getValue() > firstCard.getValue() ){
+//			isHigher = true;
+//		}
+//		if (secondCard.getValue() < firstCard.getValue() ) {
+//			isLower = true;
+//		}	
+//	}
+//	
+//	public void compareColor(PlayingCard secondCard) {
+//		if(secondCard.getSuit() == "Diamonds" || secondCard.getSuit() == "Hearts" ){
+//			isRed = true;
+//		}
+//		if (secondCard.getSuit() == "Spades"  || secondCard.getSuit() == "Clubs"){
+//			isBlack = true;
+//		}
+//	}
+//	
+//	public void compareOddEvenFace(PlayingCard secondCard) {
+//		if(secondCard.getValue() <= 10){
+//			if(secondCard.getValue() % 2 == 0){
+//				isEven = true;
+//			}if(secondCard.getValue() %2 != 0) {
+//				isOdd = true;
+//			}else {
+//				System.out.println("NOT ODD OR EVEN -- YOU HAVE AN ISSUE");
+//			}
+//		}if (secondCard.getValue() >10 ) {
+//			isFace = true;
+//		}else {
+//			System.out.println("NOT ODD, EVEN, OR FACE -- YOU HAVE A MASSIVE ISSUE");
+//		}
+//	}
 	
 	
 	

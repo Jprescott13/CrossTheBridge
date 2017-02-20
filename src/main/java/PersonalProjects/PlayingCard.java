@@ -15,6 +15,7 @@ public class PlayingCard {
 		this.shortName = shortName;
 	}
 	
+	//Compare Higher and Lower
 	public int compareCardValue (PlayingCard cardToCompare){
 		if(this.getValue() > cardToCompare.getValue() ){
 			return 1;
@@ -25,13 +26,29 @@ public class PlayingCard {
 		}
 	}
 	
-	public int compareCardColor (PlayingCard cardToCompare, String selectedColor) {
-		if (selectedColor == cardToCompare.getColor()) {
+	//Compare Red or Black
+	public int compareCardColor (String selectedColor) {
+		if (selectedColor == this.getColor()) {
 			return 1;
 		}else {
 			return -1;
 		}
 	}
+	
+	//Compare Odd, Even or Face
+	
+	public int compareOddEvenOrFace(String oddEvenOrFace) {
+		if ((this.getValue()> 10) && (oddEvenOrFace == "Face")){
+			return 1;
+		}else if((this.getValue() <=10) && (this.getValue()%2 == 0) && (oddEvenOrFace == "Even")){
+			return 1;
+		}else if((this.getValue() <=10) && (this.getValue()%2 != 0) && (oddEvenOrFace == "Odd")){
+			return 1;
+		}else {
+			return -1;
+		}
+	}
+	
 
 	public int getValue() {
 		return value;
