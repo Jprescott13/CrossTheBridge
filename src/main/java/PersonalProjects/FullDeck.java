@@ -6,8 +6,8 @@ import java.util.List;
 
 
 public class FullDeck {
-	private List<PlayingCard> unopenedDeck = new ArrayList<>();
-	private List<PlayingCard> shuffledDeck = new ArrayList<>(); 
+	private List<PlayingCard> unopenedDeck = new ArrayList<>(); //Full 52 Card Deck - all cards are in order
+	private List<PlayingCard> shuffledDeck = new ArrayList<>();  // Full 52 Card Deck - cards are shuffled
 	private List<PlayingCard> handPlayerOne = new ArrayList<>();
 	private List<PlayingCard> handPlayerTwo = new ArrayList<>();
 	private List<PlayingCard> handPlayerThree = new ArrayList<>();
@@ -57,10 +57,10 @@ public class FullDeck {
 		unopenedDeck.add(new PlayingCard("Clubs", "King", 13, "CK"));
 		unopenedDeck.add(new PlayingCard("Clubs", "Ace", 14, "CA"));
 		//Spades
-		unopenedDeck.add(new PlayingCard("Spades", "Two", 2, "C2"));
-		unopenedDeck.add(new PlayingCard("Spades", "Three", 3, "C3"));
-		unopenedDeck.add(new PlayingCard("Spades", "Four", 4, "C4"));
-		unopenedDeck.add(new PlayingCard("Spades", "Five", 5, "C5"));
+		unopenedDeck.add(new PlayingCard("Spades", "Two", 2, "S2"));
+		unopenedDeck.add(new PlayingCard("Spades", "Three", 3, "S3"));
+		unopenedDeck.add(new PlayingCard("Spades", "Four", 4, "S4"));
+		unopenedDeck.add(new PlayingCard("Spades", "Five", 5, "S5"));
 		unopenedDeck.add(new PlayingCard("Spades", "Six", 6, "S6"));
 		unopenedDeck.add(new PlayingCard("Spades", "Seven", 7, "S7"));
 		unopenedDeck.add(new PlayingCard("Spades", "Eight", 8, "S8"));

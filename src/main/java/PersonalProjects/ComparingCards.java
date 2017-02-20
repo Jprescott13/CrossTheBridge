@@ -1,8 +1,8 @@
 package PersonalProjects;
 
 public class ComparingCards {
-	private boolean isHigher = false;
-	private boolean isLower = false;
+	private static boolean isHigher = false;
+	private static boolean isLower = false;
 	private boolean isRed = false;
 	private boolean isBlack = false;
 	private boolean isOdd = false;
@@ -14,7 +14,7 @@ public class ComparingCards {
 		
 	}
 	
-	public void compareValue(PlayingCard firstCard, PlayingCard secondCard){
+	public static void compareValue(PlayingCard firstCard, PlayingCard secondCard){
 		if(secondCard.getValue() > firstCard.getValue() ){
 			isHigher = true;
 		}
@@ -51,7 +51,7 @@ public class ComparingCards {
 	
 	
 
-	public boolean isHigher() {
+	public static boolean isHigher() {
 		return isHigher;
 	}
 

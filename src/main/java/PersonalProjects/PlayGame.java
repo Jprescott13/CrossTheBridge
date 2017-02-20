@@ -33,8 +33,24 @@ public class PlayGame {
 		System.out.println(gameDeck.getHandPlayerFour().size());
 		System.out.println("TESTING");
 		
+		ComparingCards.compareValue(gameDeck.getShuffledDeck().get(1), gameDeck.getShuffledDeck().get(2));
+		System.out.println("Card 1: " + gameDeck.getShuffledDeck().get(1).getShortName());
+		System.out.println("Card 2: " + gameDeck.getShuffledDeck().get(2).getShortName());
+		System.out.println("T/F: Card 2 is higher than Card 1? ");
+		System.out.println(ComparingCards.isHigher());
 		
-		
+		if(gameDeck.getHandPlayerOne().get(1).compareCardValue(gameDeck.getHandPlayerTwo().get(1)) == 1) {
+			System.out.println("Card 1: " + gameDeck.getHandPlayerOne().get(1).getShortName());
+			System.out.println(" is higher than Card 2: " + gameDeck.getHandPlayerTwo().get(1).getShortName());
+		} else if (gameDeck.getHandPlayerOne().get(1).compareCardValue(gameDeck.getHandPlayerTwo().get(1)) == 0) {
+			System.out.println("Card 1: " + gameDeck.getHandPlayerOne().get(1).getShortName());
+			System.out.println(" has an equal value to Card 2: " + gameDeck.getHandPlayerTwo().get(1).getShortName());
+		} else if (gameDeck.getHandPlayerOne().get(1).compareCardValue(gameDeck.getHandPlayerTwo().get(1)) == -1) {
+			System.out.println("Card 1: " + gameDeck.getHandPlayerOne().get(1).getShortName());
+			System.out.println(" is lower than Card 2: " + gameDeck.getHandPlayerTwo().get(1).getShortName());
+		}
 	}
+		
+	
 
 }
