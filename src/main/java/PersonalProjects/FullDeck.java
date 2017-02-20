@@ -14,6 +14,7 @@ public class FullDeck {
 	private List<PlayingCard> handPlayerFour = new ArrayList<>();
 
 	public FullDeck() {
+		//Diamonds
 		unopenedDeck.add(new PlayingCard("Diamonds", "Two", 2, "D2"));
 		unopenedDeck.add(new PlayingCard("Diamonds", "Three", 3, "D3"));
 		unopenedDeck.add(new PlayingCard("Diamonds", "Four", 4, "D4"));
@@ -27,6 +28,7 @@ public class FullDeck {
 		unopenedDeck.add(new PlayingCard("Diamonds", "Queen", 12, "DQ"));
 		unopenedDeck.add(new PlayingCard("Diamonds", "King", 13, "DK"));
 		unopenedDeck.add(new PlayingCard("Diamonds", "Ace", 14, "DA"));
+		//Hearts
 		unopenedDeck.add(new PlayingCard("Hearts", "Two", 2, "H2"));
 		unopenedDeck.add(new PlayingCard("Hearts", "Three", 3, "H3"));
 		unopenedDeck.add(new PlayingCard("Hearts", "Four", 4, "H4"));
@@ -40,6 +42,34 @@ public class FullDeck {
 		unopenedDeck.add(new PlayingCard("Hearts", "Queen", 12, "HQ"));
 		unopenedDeck.add(new PlayingCard("Hearts", "King", 13, "HK"));
 		unopenedDeck.add(new PlayingCard("Hearts", "Ace", 14, "HA"));
+		//Clubs
+		unopenedDeck.add(new PlayingCard("Clubs", "Two", 2, "C2"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Three", 3, "C3"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Four", 4, "C4"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Five", 5, "C5"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Six", 6, "C6"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Seven", 7, "C7"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Eight", 8, "C8"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Nine", 9, "C9"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Ten", 10, "C10"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Jack", 11, "CJ"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Queen", 12, "CQ"));
+		unopenedDeck.add(new PlayingCard("Clubs", "King", 13, "CK"));
+		unopenedDeck.add(new PlayingCard("Clubs", "Ace", 14, "CA"));
+		//Spades
+		unopenedDeck.add(new PlayingCard("Spades", "Two", 2, "C2"));
+		unopenedDeck.add(new PlayingCard("Spades", "Three", 3, "C3"));
+		unopenedDeck.add(new PlayingCard("Spades", "Four", 4, "C4"));
+		unopenedDeck.add(new PlayingCard("Spades", "Five", 5, "C5"));
+		unopenedDeck.add(new PlayingCard("Spades", "Six", 6, "S6"));
+		unopenedDeck.add(new PlayingCard("Spades", "Seven", 7, "S7"));
+		unopenedDeck.add(new PlayingCard("Spades", "Eight", 8, "S8"));
+		unopenedDeck.add(new PlayingCard("Spades", "Nine", 9, "S9"));
+		unopenedDeck.add(new PlayingCard("Spades", "Ten", 10, "S10"));
+		unopenedDeck.add(new PlayingCard("Spades", "Jack", 11, "SJ"));
+		unopenedDeck.add(new PlayingCard("Spades", "Queen", 12, "SQ"));
+		unopenedDeck.add(new PlayingCard("Spades", "King", 13, "SK"));
+		unopenedDeck.add(new PlayingCard("Spades", "Ace", 14, "SA"));
 	
 	}
 	
