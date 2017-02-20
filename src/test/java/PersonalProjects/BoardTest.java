@@ -16,6 +16,8 @@ public class BoardTest {
 		
 		
 		assertTrue(card.getValue() >=1 && card.getValue() <=14);
+		
+		
 	}
 
 }

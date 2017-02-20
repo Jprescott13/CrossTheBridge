@@ -15,7 +15,7 @@ public class Board {
 		this.deck = deck.getUnopenedDeck();
 	}
 	private int randomLocation(){
-		int location =  (int)Math.random() * this.deck.size() + 1;
+		int location =  (int)(Math.random() * this.deck.size() + 1);
 		 return location;
 	}
 	// creates a matrix, returns matrix of input size
