@@ -15,7 +15,7 @@ public class PlayGame {
 		System.out.println("***Shuffled Deck***");
 		System.out.println(gameDeck.displayShuffledDeck(gameDeck.getUnopenedDeck()));
 
-		gameDeck.dealCards(2);
+		gameDeck.dealCards(3);
 		System.out.println("***Player 1's Hand Deck***");
 		System.out.println(gameDeck.displayShuffledDeck(gameDeck.getHandPlayerOne()));
 		System.out.println(gameDeck.getHandPlayerOne().size());
