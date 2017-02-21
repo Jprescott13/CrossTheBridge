@@ -104,8 +104,7 @@ public class Board {
 		
 		displayEmptyMatrix();
 		displayMatrix(this.topMatrix);
-		displayEmptyMatrix();
-		
+		displayEmptyMatrix();		
 		// middle layer
 		displayMatrix(this.leftMatrix);
 		displayMatrix(this.centerMatrix);
