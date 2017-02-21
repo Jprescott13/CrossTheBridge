@@ -89,9 +89,15 @@ public class PlayGame {
 			System.out.println("We Have an Issue");
 		}
 	
+		System.out.println("**************" );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println(" " );
 		gameBoard.generateBoard();
 		//gameBoard.displayBoardWithCardsShowing();
 		gameBoard.displayTopSectionOfFormattedMatrixWithCardsShowing();
+		gameBoard.displayCenterSectionOfFormattedMatrixWithCardsShowing();
+		gameBoard.displayBottomSectionOfFormattedMatrixWithCardsShowing();
 	
 	}
 	
