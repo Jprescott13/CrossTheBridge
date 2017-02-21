@@ -7,6 +7,9 @@ public class PlayingCard {
 	private String name;
 	private String shortName;
 	private String color;
+	private String outterDisplay = "UNFLIPPEDCARD";
+
+
 
 	public PlayingCard(String suit, String name, int value, String shortName) {
 		this.suit = suit;
@@ -93,6 +96,15 @@ public class PlayingCard {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+	
+	// Set and get display for unflipped cards
+	public void setOutterDisplay(String outterDisplay) {
+		this.outterDisplay = outterDisplay;
+	}
+
+	public String getOutterDisplay() {
+		return outterDisplay;
 	}
 
 }

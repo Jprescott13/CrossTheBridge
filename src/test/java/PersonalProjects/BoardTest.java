@@ -9,15 +9,16 @@ public class BoardTest {
 	@Test
 	public void testPopulateOuterMatrix() {
 		FullDeck deck = new FullDeck();
-		Board board = new Board(deck);
-		PlayingCard[][] leftMatrix = board.getLeftMatrix();
-		
-		PlayingCard card = leftMatrix[1][2];
-		
-		
-		assertTrue(card.getValue() >=1 && card.getValue() <=14);
-		
+		Board board = new Board(deck, 3,4);
+
+		board.generateBoard();
+		board.getLeftMatrix();
+		board.displayBoard();
 		
 	}
-
+	
+	@Test
+	public void testRandomLocation(){
+		FullDeck deck = new FullDeck();
+	}
 }
