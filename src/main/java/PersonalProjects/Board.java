@@ -11,6 +11,7 @@ public class Board {
 	private PlayingCard[][] topMatrix;
 	private PlayingCard[][] bottomMatrix;
 	private PlayingCard[][] fullMatrix;
+	private PlayingCard[][] nonPlayableMatrix;
 	private int row;
 	private int col;
 	
@@ -42,6 +43,19 @@ public class Board {
 		}
 		return matrix;
 	}
+	
+	//populateEmptyMatrixWithEmptyCards
+	private PlayingCard[][] populateNonPlayableMatrix(PlayingCard[][] matrix) {
+		for(int row = 0; row < matrix.length; row++){
+			for(int col = 0; col < matrix[0].length; col++){
+				PlayingCard nonPlayableLocationCard = new PlayingCard("none", "empty", 0, "XX");
+				nonPlayableLocationCard.setOutterDisplay("XXX");
+				matrix[row][col] = nonPlayableLocationCard;
+			}
+		}
+		return matrix;
+	}
+	
 	//center matrix has possible null locations where user cannot travel
 	private PlayingCard[][] populateCenterMatrix(PlayingCard[][] matrix){
 		voidLocation = new PlayingCard("none", "empty", 0, "E");
@@ -77,6 +91,8 @@ public class Board {
 		this.bottomMatrix =  populateOuterMatrix(bottomMatrix);
 		this.centerMatrix = createMatrix(this.row,this.col);
 		this.centerMatrix = populateCenterMatrix(centerMatrix);
+		this.nonPlayableMatrix = createMatrix(this.row, this.col);
+		this.nonPlayableMatrix = populateNonPlayableMatrix(nonPlayableMatrix);
 	}
 	
 
@@ -152,6 +168,7 @@ public class Board {
 	
 	//JP's attempt to create Matrixes that display the card short names instead of "UNFLIPPED"
 	
+	//Displays matrix with Card's Short Names showing
 	private void displayMatrixWithCardsShowing(PlayingCard [][] matrix){
 		for(row = 0; row < matrix.length; row++){
 			for(col=0; col < matrix[0].length; col++){
@@ -160,6 +177,17 @@ public class Board {
 			System.out.println();
 		}
 	}
+	
+	private void displayEmptyMatrixWithCardsshowing(PlayingCard[][] matrix){
+		for(row = 0; row < matrix.length; row++){
+			for(col=0; col < matrix[0].length; col++){
+				System.out.print(matrix[row][col].getShortName() + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	
 	
 	public void displayBoardWithCardsShowing(){
 		// top layer
@@ -179,7 +207,9 @@ public class Board {
 		displayEmptyMatrix();
 	}
 	
-	public void displayTopSectionOfFormattedMatrixWithCardsShowing(){
+	
+	//Displays Center 3 Matrixes formatted so they actually fit together in the console. 
+	public void displayCenterSectionOfFormattedMatrixWithCardsShowing(){
 		for(row = 0; row < Math.max(Math.max(this.leftMatrix.length, this.centerMatrix.length), this.rightMatrix.length); row++){
 			for(col=0; col < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); col++){
 				if( col < this.leftMatrix[0].length) {
@@ -204,5 +234,55 @@ public class Board {
 		}
 	}
 	
+	
+	public void displayTopSectionOfFormattedMatrixWithCardsShowing(){
+		for(row = 0; row < Math.max(Math.max(this.nonPlayableMatrix.length, this.topMatrix.length), this.nonPlayableMatrix.length); row++){
+			for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.nonPlayableMatrix[0].length) {
+					System.out.printf("%-10s", this.nonPlayableMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+				
+			}for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.topMatrix[0].length) {
+					System.out.printf("%-10s", this.topMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			}for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.nonPlayableMatrix[0].length) {
+					System.out.printf("%-10s", this.nonPlayableMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			} System.out.println();
+		}
+	}
+	
+	public void displayBottomSectionOfFormattedMatrixWithCardsShowing(){
+		for(row = 0; row < Math.max(Math.max(this.nonPlayableMatrix.length, this.bottomMatrix.length), this.nonPlayableMatrix.length); row++){
+			for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.bottomMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.nonPlayableMatrix[0].length) {
+					System.out.printf("%-10s", this.nonPlayableMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+				
+			}for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.bottomMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.bottomMatrix[0].length) {
+					System.out.printf("%-10s", this.bottomMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			}for(col=0; col < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.bottomMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				if( col < this.nonPlayableMatrix[0].length) {
+					System.out.printf("%-10s", this.nonPlayableMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			} System.out.println();
+		}
+	}
 	
 }
