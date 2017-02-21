@@ -180,7 +180,7 @@ public class Board {
 	}
 	
 	public void displayTopSectionOfFormattedMatrixWithCardsShowing(){
-		for(row = 0; row < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); row++){
+		for(row = 0; row < Math.max(Math.max(this.leftMatrix.length, this.centerMatrix.length), this.rightMatrix.length); row++){
 			for(col=0; col < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); col++){
 				if( col < this.leftMatrix[0].length) {
 					System.out.printf("%-10s", this.leftMatrix[row][col].getShortName() + " ");
