@@ -99,6 +99,9 @@ public class Board {
 		}
 	}
 	
+	
+	
+	
 	public void displayBoard(){
 		// top layer
 		
@@ -145,6 +148,60 @@ public class Board {
 //		bottomMatrix = createMatrix(this.row,this.col);
 //		return populateOuterMatrix(bottomMatrix);
 		return this.bottomMatrix;
+	}
+	
+	//JP's attempt to create Matrixes that display the card short names instead of "UNFLIPPED"
+	
+	private void displayMatrixWithCardsShowing(PlayingCard [][] matrix){
+		for(row = 0; row < matrix.length; row++){
+			for(col=0; col < matrix[0].length; col++){
+				System.out.print(matrix[row][col].getShortName() + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void displayBoardWithCardsShowing(){
+		// top layer
+		
+		displayEmptyMatrix();
+		displayMatrixWithCardsShowing(this.topMatrix);
+		displayEmptyMatrix();
+		
+		// middle layer
+		displayMatrixWithCardsShowing(this.leftMatrix);
+		displayMatrixWithCardsShowing(this.centerMatrix);
+		displayMatrixWithCardsShowing(this.rightMatrix);
+		
+		//bottom layer
+		displayEmptyMatrix();
+		displayMatrixWithCardsShowing(this.bottomMatrix);
+		displayEmptyMatrix();
+	}
+	
+	public void displayTopSectionOfFormattedMatrixWithCardsShowing(){
+		for(row = 0; row < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); row++){
+			for(col=0; col < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); col++){
+				if( col < this.leftMatrix[0].length) {
+					System.out.printf("%-10s", this.leftMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+				
+			}for(col=0; col < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); col++){
+				if( col < this.centerMatrix[0].length) {
+					System.out.printf("%-10s", this.centerMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			}for(col=0; col < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); col++){
+				if( col < this.rightMatrix[0].length) {
+					System.out.printf("%-10s", this.rightMatrix[row][col].getShortName() + " ");
+				}else {
+					System.out.printf("%-10s", " ");
+				}
+			} System.out.println();
+		}
 	}
 	
 	

@@ -5,6 +5,7 @@ public class PlayGame {
 
 	public static void main(String[] args) {
 		FullDeck gameDeck = new FullDeck();
+		Board gameBoard = new Board(gameDeck, 3,3);
 		
 		
 		System.out.println("***Clean Deck***");
@@ -33,7 +34,7 @@ public class PlayGame {
 		System.out.println(gameDeck.getHandPlayerFour().size());
 		
 		
-		//Testing the Comparing Card fuctionality.
+		//Testing the Comparing Card functionality.
 		
 		System.out.println("TESTING");
 		
@@ -87,8 +88,15 @@ public class PlayGame {
 		}else {
 			System.out.println("We Have an Issue");
 		}
+	
+		gameBoard.generateBoard();
+		//gameBoard.displayBoardWithCardsShowing();
+		gameBoard.displayTopSectionOfFormattedMatrixWithCardsShowing();
+	
 	}
-		
+	
+	
+	
 	
 
 }
