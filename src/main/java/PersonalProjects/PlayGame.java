@@ -5,7 +5,7 @@ public class PlayGame {
 
 	public static void main(String[] args) {
 		FullDeck gameDeck = new FullDeck();
-		Board gameBoard = new Board(gameDeck, 3,4);
+		Board gameBoard = new Board(gameDeck, 3,3);
 		
 		
 		System.out.println("***Clean Deck***");

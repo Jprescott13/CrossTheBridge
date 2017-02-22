@@ -29,6 +29,13 @@ public class Board {
 		return new PlayingCard[row][column];
 	}
 	
+	//create fullMatrix
+	private PlayingCard[][] createFullMatrix(int row, int column){
+		row = this.row*3;
+		column = this.col*3;
+		return new PlayingCard[row][column];
+	}
+	
 	// populates given matrix from deck
 	//removes card from deck after it is assigned
 	private PlayingCard[][] populateOuterMatrix(PlayingCard[][] matrix){
@@ -79,6 +86,9 @@ public class Board {
 		return matrix;
 	}
 	
+
+	
+	
 	public void generateBoard(){
 	//	this.fullMatrix = new PlayingCard[this.row*3][this.col*3];
 		this.leftMatrix = createMatrix(this.row,this.col);
@@ -93,6 +103,7 @@ public class Board {
 		this.centerMatrix = populateCenterMatrix(centerMatrix);
 		this.nonPlayableMatrix = createMatrix(this.row, this.col);
 		this.nonPlayableMatrix = populateNonPlayableMatrix(nonPlayableMatrix);
+		this.fullMatrix = createFullMatrix(this.row, this.col);
 	}
 	
 
@@ -284,6 +295,38 @@ public class Board {
 				}
 			} System.out.println();
 		}
+	}
+	
+	
+	public void populateFullMatrix (PlayingCard[][] matrixToBePopulated){
+		int fullMatrixRow =0;
+		int fullMatrixColumn = 0;
+		
+//		for (int fullMatrixRow =0; fullMatrixRow < this.fullMatrix.length; fullMatrixRow++) {
+//			for (int fullMatrixColumn = 0; fullMatrixColumn < this.fullMatrix[0].length; fullMatrixColumn++){
+				
+		for(int smallMatrixRow = 0; smallMatrixRow < Math.max(Math.max(this.nonPlayableMatrix.length, this.topMatrix.length), this.nonPlayableMatrix.length); smallMatrixRow++){
+					
+			for(int smallMatrixColumn=0; smallMatrixColumn < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); smallMatrixColumn++){
+				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				fullMatrixColumn ++;
+			}
+					
+			for(int smallMatrixColumn=0; smallMatrixColumn < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				matrixToBePopulated[row][col] = this.topMatrix[smallMatrixRow][smallMatrixColumn];
+				fullMatrixColumn ++;
+			}
+					
+			for(int smallMatrixColumn=0; smallMatrixColumn < Math.max(Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length), this.nonPlayableMatrix[0].length); col++){
+				matrixToBePopulated[row][col] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				fullMatrixColumn ++;
+				fullMatrixRow ++;
+			}
+		}
+		for(int secondSmallMatrixRow = 0; secondSmallMatrixRow < Math.max(Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length), this.rightMatrix[0].length); secondSmallMatrixRow++){
+			matrixToBePopulated[row][col] = this.leftMatrix[row][col];
+		}
+		
 	}
 	
 }
