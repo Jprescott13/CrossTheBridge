@@ -98,6 +98,14 @@ public class PlayGame {
 		gameBoard.displayTopSectionOfFormattedMatrixWithCardsShowing();
 		gameBoard.displayCenterSectionOfFormattedMatrixWithCardsShowing();
 		gameBoard.displayBottomSectionOfFormattedMatrixWithCardsShowing();
+		
+		
+		System.out.println("**************" );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println(" " );
+		
+		gameBoard.displayFullBoard();
 	
 	}
 	

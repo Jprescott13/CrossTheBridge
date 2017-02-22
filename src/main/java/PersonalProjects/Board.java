@@ -34,10 +34,10 @@ public class Board {
 	}
 
 	// create fullMatrix
-	private PlayingCard[][] createFullMatrix(int row, int column) {
+	private PlayingCard[][] createFullMatrix(int row, int col) {
 		fullMatrixRows = this.row * 3;
 		fullMatrixColumn = this.col * 3;
-		return new PlayingCard[row][column];
+		return new PlayingCard[fullMatrixRows][fullMatrixColumn];
 	}
 
 	// populates given matrix from deck
@@ -103,7 +103,7 @@ public class Board {
 		this.centerMatrix = populateCenterMatrix(centerMatrix);
 		this.nonPlayableMatrix = createMatrix(this.row, this.col);
 		this.nonPlayableMatrix = populateNonPlayableMatrix(nonPlayableMatrix);
-		this.fullMatrix = createFullMatrix(this.row, this.col);
+		this.fullMatrix = createFullMatrix(this.fullMatrixRows, this.fullMatrixColumn);
 		this.fullMatrix = populateFullMatrix(fullMatrix);
 	}
 
@@ -314,36 +314,39 @@ public class Board {
 	}
 
 	public PlayingCard[][] populateFullMatrix(PlayingCard[][] matrixToBePopulated) {
-		int fullMatrixRow = 0;
-		int fullMatrixColumn = 0;
+		int matrixToBePopulatedRow = 0;
+		int matrixToBePopulatedColumn = 0;
 
 		for (int smallMatrixRow = 0; smallMatrixRow < Math.max(
 				Math.max(this.nonPlayableMatrix.length, this.topMatrix.length),
 				this.nonPlayableMatrix.length); smallMatrixRow++) {
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
+					
 					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
 					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
+			}
+
+			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
+					
+					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
+					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
+
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.topMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
 					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.topMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
-
-			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
-					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
-					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
-			}
-			fullMatrixRow++;
-			fullMatrixColumn = 0;
+			matrixToBePopulatedRow++;
+			matrixToBePopulatedColumn = 0;
 		}
 
 		for (int smallMatrixRow = 0; smallMatrixRow < Math.max(
@@ -353,25 +356,25 @@ public class Board {
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length),
 					this.rightMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.leftMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.leftMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length),
 					this.rightMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.centerMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.centerMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.leftMatrix[0].length, this.centerMatrix[0].length),
 					this.rightMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.rightMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.rightMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
-			fullMatrixRow++;
-			fullMatrixColumn = 0;
+			matrixToBePopulatedRow++;
+			matrixToBePopulatedColumn = 0;
 		}
 
 		for (int smallMatrixRow = 0; smallMatrixRow < Math.max(
@@ -381,32 +384,32 @@ public class Board {
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
 					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.nonPlayableMatrix[0].length, this.bottomMatrix[0].length),
 					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.topMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.topMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
 
 			for (int smallMatrixColumn = 0; smallMatrixColumn < Math.max(
 					Math.max(this.nonPlayableMatrix[0].length, this.topMatrix[0].length),
 					this.nonPlayableMatrix[0].length); smallMatrixColumn++) {
-				matrixToBePopulated[fullMatrixRow][fullMatrixColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
-				fullMatrixColumn++;
+				matrixToBePopulated[matrixToBePopulatedRow][matrixToBePopulatedColumn] = this.nonPlayableMatrix[smallMatrixRow][smallMatrixColumn];
+				matrixToBePopulatedColumn++;
 			}
-			fullMatrixRow++;
-			fullMatrixColumn = 0;
+			matrixToBePopulatedRow++;
+			matrixToBePopulatedColumn = 0;
 		}
 
 		return matrixToBePopulated;
 
 	}
 
-	private void displayFullMatrix() {
+	public void displayFullBoard() {
 		for (row = 0; row < fullMatrixRows; row++) {
 			for (col = 0; col < fullMatrixColumn; col++) {
 				if (col < this.fullMatrix[0].length) {
@@ -414,8 +417,8 @@ public class Board {
 				} else {
 					System.out.printf("%-10s", " ");
 				}
-
 			}
+			System.out.println(" ");
 		}
 	}
 
