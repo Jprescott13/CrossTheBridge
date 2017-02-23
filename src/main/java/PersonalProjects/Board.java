@@ -12,6 +12,7 @@ public class Board {
 	private PlayingCard[][] bottomMatrix;
 	private PlayingCard[][] fullMatrix;
 	private PlayingCard[][] nonPlayableMatrix;
+	private PlayingCard singleCardInPlayingCardMatrix;
 	private int row;
 	private int col;
 	private int fullMatrixRows;
@@ -420,6 +421,100 @@ public class Board {
 			}
 			System.out.println(" ");
 		}
+	}
+
+	public List<PlayingCard> getDeck() {
+		return deck;
+	}
+
+	public void setDeck(List<PlayingCard> deck) {
+		this.deck = deck;
+	}
+
+	public PlayingCard getVoidLocation() {
+		return voidLocation;
+	}
+
+	public void setVoidLocation(PlayingCard voidLocation) {
+		this.voidLocation = voidLocation;
+	}
+
+	public PlayingCard[][] getFullMatrix() {
+		return fullMatrix;
+	}
+
+	public void setFullMatrix(PlayingCard[][] fullMatrix) {
+		this.fullMatrix = fullMatrix;
+	}
+
+	public PlayingCard[][] getNonPlayableMatrix() {
+		return nonPlayableMatrix;
+	}
+
+	public void setNonPlayableMatrix(PlayingCard[][] nonPlayableMatrix) {
+		this.nonPlayableMatrix = nonPlayableMatrix;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public void setCol(int col) {
+		this.col = col;
+	}
+
+	public int getFullMatrixRows() {
+		return fullMatrixRows;
+	}
+
+	public void setFullMatrixRows(int fullMatrixRows) {
+		this.fullMatrixRows = fullMatrixRows;
+	}
+
+	public int getFullMatrixColumn() {
+		return fullMatrixColumn;
+	}
+
+	public void setFullMatrixColumn(int fullMatrixColumn) {
+		this.fullMatrixColumn = fullMatrixColumn;
+	}
+
+	public void setLeftMatrix(PlayingCard[][] leftMatrix) {
+		this.leftMatrix = leftMatrix;
+	}
+
+	public void setCenterMatrix(PlayingCard[][] centerMatrix) {
+		this.centerMatrix = centerMatrix;
+	}
+
+	public void setRightMatrix(PlayingCard[][] rightMatrix) {
+		this.rightMatrix = rightMatrix;
+	}
+
+	public void setTopMatrix(PlayingCard[][] topMatrix) {
+		this.topMatrix = topMatrix;
+	}
+
+	public void setBottomMatrix(PlayingCard[][] bottomMatrix) {
+		this.bottomMatrix = bottomMatrix;
+	}
+
+	public PlayingCard getSingleCardInPlayingCardMatrix(PlayingCard[][] matrixToBeSearched, int matrixRow, int matrixColumn) {
+		PlayingCard playingCardToBeReturned;
+		playingCardToBeReturned = matrixToBeSearched[matrixRow][matrixColumn];
+		return playingCardToBeReturned;
+	}
+
+	public void setSingleCardInPlayingCardMatrix(PlayingCard singleCardInPlayingCardMatrix) {
+		this.singleCardInPlayingCardMatrix = singleCardInPlayingCardMatrix;
 	}
 
 }
