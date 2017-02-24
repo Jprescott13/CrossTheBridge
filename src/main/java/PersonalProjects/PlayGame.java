@@ -7,6 +7,7 @@ public class PlayGame {
 		Board gameBoard = new Board(gameDeck, 3,4);
 		OldPlayer player1 = new OldPlayer(1, "JP",5,0);
 		OldPlayer player2 = new OldPlayer(2, "Robbie",3,8);
+		InGameDynamics gamePlay = new InGameDynamics();
 
 		System.out.println("***Clean / Unshuffled Deck***");
 		System.out.println(" " );
@@ -146,13 +147,12 @@ public class PlayGame {
 			System.out.println("Player 2's stating location is : [" + player2.getPlayerStartingRow() + "] [" 
 					+ player2.getPlayerStartingColumn() + "] is NOT a valid location");
 		}
+	
+		gamePlay.mapOfCurrentCards(gameBoard);
+		gamePlay.displayMapOfCurrentCards(gamePlay.getCardsInGameByInGameLocation());
+		
 		
 	}
-	
-	
-	
-	
-	
 	
 
 }

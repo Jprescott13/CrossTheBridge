@@ -1,11 +1,14 @@
 package PersonalProjects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class InGameDynamics {
+	
+	//*** This May need to be a Static Class***
 
 	//private Set<PlayingCard> allCardsOnBoard = new HashSet<>();
 	private Set<PlayingCard> allFlippedCards = new HashSet<>();
@@ -15,6 +18,7 @@ public class InGameDynamics {
 	private List<int[][]> downPlayableLocations = new ArrayList<>();
 	private Set<int[][]> allPlayableLocations = new HashSet<>();
 	private boolean arePlayersConnected = false;
+	private HashMap<String, PlayingCard> cardsInGameByInGameLocation= new HashMap<>();
 
 	public InGameDynamics() {
 		// TODO Auto-generated constructor stub
@@ -30,7 +34,23 @@ public class InGameDynamics {
 		return allCardsOnBoard;
 	}
 	
-	public HashMap<String, PlayingCard> mapOfCurrentCards()
+	public HashMap<String, PlayingCard> mapOfCurrentCards(Board gameBoard) {
+		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
+			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
+				String rowAsString = String.valueOf(currentRow);
+				String colAsString = String.valueOf(currentColumn);
+				String rowColString = rowAsString + colAsString;
+				cardsInGameByInGameLocation.put(rowColString, gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
+			}
+		}
+		return cardsInGameByInGameLocation;
+	}
+	
+	public void displayMapOfCurrentCards (HashMap <String, PlayingCard> mapToDisplay) {
+		for( String keySet : mapToDisplay.keySet()) {
+			System.out.println(keySet);
+		}
+	}
 
 //	public void setAllCardsOnBoard(Set<PlayingCard> allCardsOnBoard) {
 //		this.allCardsOnBoard = allCardsOnBoard;
@@ -90,6 +110,14 @@ public class InGameDynamics {
 
 	public void setArePlayersConnected(boolean arePlayersConnected) {
 		this.arePlayersConnected = arePlayersConnected;
+	}
+
+	public HashMap<String, PlayingCard> getCardsInGameByInGameLocation() {
+		return cardsInGameByInGameLocation;
+	}
+
+	public void setCardsInGameByInGameLocation(HashMap<String, PlayingCard> cardsInGameByInGameLocation) {
+		this.cardsInGameByInGameLocation = cardsInGameByInGameLocation;
 	}
 
 }
