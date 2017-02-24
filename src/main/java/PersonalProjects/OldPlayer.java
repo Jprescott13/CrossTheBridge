@@ -1,8 +1,6 @@
 package PersonalProjects;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class OldPlayer {
@@ -29,13 +27,8 @@ public class OldPlayer {
 	private String playerName;
 	private int playerStartingRow;
 	private int playerStartingColumn;
-	private List<int[][]> leftPlayableLocations = new ArrayList<>();
-	private List<int[][]> upPlayableLocations = new ArrayList<>();
-	private List<int[][]> rightPlayableLocations = new ArrayList<>();
-	private List<int[][]> downPlayableLocations = new ArrayList<>();
-	private Set<int[][]> allflippedCards = new HashSet<>();
-	private boolean arePlayersConnected = false;
 	private boolean player1sTurn = true;
+	private Set<int[][]> playersPlayableLocations = new HashSet<>();
 
 	public OldPlayer(int playersNumber, String name, int startingRow, int startingColumn) {
 		this.playerNumber = playersNumber;
@@ -43,9 +36,6 @@ public class OldPlayer {
 		this.playerStartingRow = startingRow;
 		this.playerStartingColumn = startingColumn;
 	}
-	
-	
-	
 
 	public int getPlayerNumber() {
 		return playerNumber;
@@ -79,46 +69,6 @@ public class OldPlayer {
 		this.playerStartingColumn = playerStartingColumn;
 	}
 
-	public List<int[][]> getLeftPlayableLocations() {
-		return leftPlayableLocations;
-	}
-
-	public void setLeftPlayableLocations(List<int[][]> leftPlayableLocations) {
-		this.leftPlayableLocations = leftPlayableLocations;
-	}
-
-	public List<int[][]> getUpPlayableLocations() {
-		return upPlayableLocations;
-	}
-
-	public void setUpPlayableLocations(List<int[][]> upPlayableLocations) {
-		this.upPlayableLocations = upPlayableLocations;
-	}
-
-	public List<int[][]> getRightPlayableLocations() {
-		return rightPlayableLocations;
-	}
-
-	public void setRightPlayableLocations(List<int[][]> rightPlayableLocations) {
-		this.rightPlayableLocations = rightPlayableLocations;
-	}
-
-	public List<int[][]> getDownPlayableLocations() {
-		return downPlayableLocations;
-	}
-
-	public void setDownPlayableLocations(List<int[][]> downPlayableLocations) {
-		this.downPlayableLocations = downPlayableLocations;
-	}
-
-	public boolean isArePlayersConnected() {
-		return arePlayersConnected;
-	}
-
-	public void setArePlayersConnected(boolean arePlayersConnected) {
-		this.arePlayersConnected = arePlayersConnected;
-	}
-
 	public boolean isPlayer1sTurn() {
 		return player1sTurn;
 	}
@@ -127,20 +77,12 @@ public class OldPlayer {
 		this.player1sTurn = player1sTurn;
 	}
 
-
-
-
-
-	public Set<int[][]> getAllflippedCards() {
-		return allflippedCards;
+	public Set<int[][]> getPlayersPlayableLocations() {
+		return playersPlayableLocations;
 	}
 
-
-
-
-
-	public void setAllflippedCards(Set<int[][]> allflippedCards) {
-		this.allflippedCards = allflippedCards;
+	public void setPlayersPlayableLocations(Set<int[][]> playersPlayableLocations) {
+		this.playersPlayableLocations = playersPlayableLocations;
 	}
 
 }
