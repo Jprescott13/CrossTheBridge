@@ -18,20 +18,25 @@ public class InGameDynamics {
 	private List<int[][]> downPlayableLocations = new ArrayList<>();
 	private Set<int[][]> allPlayableLocations = new HashSet<>();
 	private boolean arePlayersConnected = false;
-	private HashMap<String, PlayingCard> cardsInGameByInGameLocation= new HashMap<>();
+	private HashMap<int[], PlayingCard> cardsInGameByInGameLocation= new HashMap<>();
 	private HashMap<String, PlayingCard> flippedCardsInGameByInGameLocation= new HashMap<>();
 
 	public InGameDynamics() {
 		// TODO Auto-generated constructor stub
 	}
 		
-	public HashMap<String, PlayingCard> mapOfCurrentCards(Board gameBoard) {
-		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
-			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
-				String rowAsString = String.valueOf(currentRow);
-				String colAsString = String.valueOf(currentColumn);
-				String rowColString = rowAsString + colAsString;
-				cardsInGameByInGameLocation.put(rowColString, gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
+	public HashMap<int[], PlayingCard> mapOfCurrentCards(Board gameBoard) {
+		PlayingCard[][] matrix = gameBoard.getFullMatrix();
+		
+		for (int currentRow = 0; currentRow < matrix.length; currentRow++) {
+			for (int currentColumn = 0; currentColumn < matrix[0].length; currentColumn++){
+//				String rowAsString = String.valueOf(currentRow);
+//				String colAsString = String.valueOf(currentColumn);
+//				String rowColString = rowAsString + colAsString;
+				int[]location = new int[2];
+				location[0]= currentRow;
+				location[1] = currentColumn;
+				cardsInGameByInGameLocation.put(location, gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
 			}
 		}
 		return cardsInGameByInGameLocation;
