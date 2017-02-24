@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Board {
 	private List<PlayingCard> deck;
+	private List<PlayingCard> leftOverDeck;
 	private PlayingCard voidLocation;
 	private PlayingCard[][] leftMatrix;
 	private PlayingCard[][] centerMatrix;
@@ -53,6 +54,7 @@ public class Board {
 				this.deck.remove(location);
 			}
 		}
+		this.leftOverDeck = this.deck;
 		return matrix;
 	}
 
@@ -87,6 +89,7 @@ public class Board {
 				}
 			}
 		}
+		this.leftOverDeck=this.deck;
 		return matrix;
 	}
 
