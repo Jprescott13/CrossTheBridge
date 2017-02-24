@@ -4,7 +4,7 @@ public class PlayGame {
 	
 	public static void main(String[] args) {
 		FullDeck gameDeck = new FullDeck();
-		Board gameBoard = new Board(gameDeck, 3,4);
+		Board gameBoard = new Board(gameDeck, 3,3);
 		OldPlayer player1 = new OldPlayer(1, "JP",5,0);
 		OldPlayer player2 = new OldPlayer(2, "Robbie",3,8);
 		InGameDynamics gamePlay = new InGameDynamics();
@@ -147,10 +147,34 @@ public class PlayGame {
 			System.out.println("Player 2's stating location is : [" + player2.getPlayerStartingRow() + "] [" 
 					+ player2.getPlayerStartingColumn() + "] is NOT a valid location");
 		}
+		
+		System.out.println("**************" );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println("Display all the locations of Cards:");
 	
 		gamePlay.mapOfCurrentCards(gameBoard);
 		gamePlay.displayMapOfCurrentCards(gamePlay.getCardsInGameByInGameLocation());
 		
+
+
+		
+		gamePlay.flipPlayer1StartingCards(player1.getPlayerStartingRow(), player1.getPlayerStartingColumn());
+		gamePlay.flipPlayer2StartingCards(player2.getPlayerStartingRow(), player2.getPlayerStartingColumn());
+		System.out.println("**************" );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println(" " );
+		System.out.println("Display the locations of the flipped Cards:");
+		
+		gamePlay.mapOfFlippedCurrentCards(gameBoard);
+		gamePlay.displayMapOfFlippedCurrentCards(gamePlay.getFlippedCardsInGameByInGameLocation());
+		
+		
+		
+		
+		//System.out.println(gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), matrixRow, matrixColumn));
 		
 	}
 	

@@ -19,21 +19,12 @@ public class InGameDynamics {
 	private Set<int[][]> allPlayableLocations = new HashSet<>();
 	private boolean arePlayersConnected = false;
 	private HashMap<String, PlayingCard> cardsInGameByInGameLocation= new HashMap<>();
+	private HashMap<String, PlayingCard> flippedCardsInGameByInGameLocation= new HashMap<>();
 
 	public InGameDynamics() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Set<PlayingCard> getAllCardsOnBoard(Board gameBoard) {
-		Set<PlayingCard> allCardsOnBoard = new HashSet<>();
-		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
-			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
-				allCardsOnBoard.add(gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
-			}
-		}
-		return allCardsOnBoard;
-	}
-	
+		
 	public HashMap<String, PlayingCard> mapOfCurrentCards(Board gameBoard) {
 		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
 			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
@@ -50,6 +41,54 @@ public class InGameDynamics {
 		for( String keySet : mapToDisplay.keySet()) {
 			System.out.println(keySet);
 		}
+	}
+	
+	public HashMap<String, PlayingCard> mapOfFlippedCurrentCards(Board gameBoard) {
+		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
+			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
+				if (gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn).isFaceIsShowing()){
+					String rowAsString = String.valueOf(currentRow);
+					String colAsString = String.valueOf(currentColumn);
+					String rowColString = rowAsString + colAsString;
+					flippedCardsInGameByInGameLocation.put(rowColString, gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
+				}
+			}
+		}
+		return flippedCardsInGameByInGameLocation;
+	}
+	
+	public void displayMapOfFlippedCurrentCards(HashMap <String, PlayingCard> mapToDisplay) {
+		for( String keySet : mapToDisplay.keySet()) {
+			System.out.println(keySet);
+		}
+	}
+	
+	public void flipPlayer1StartingCards(int row, int column) {
+		String rowAsString = String.valueOf(row);
+		String colAsString = String.valueOf(column);
+		String rowColString = rowAsString + colAsString; 
+		cardsInGameByInGameLocation.get(rowColString).setFaceIsShowing(true);
+	}
+	
+	public void flipPlayer2StartingCards(int row, int column) {
+		String rowAsString = String.valueOf(row);
+		String colAsString = String.valueOf(column);
+		String rowColString = rowAsString + colAsString; 
+		cardsInGameByInGameLocation.get(rowColString).setFaceIsShowing(true); 
+	}
+	
+	public 
+	
+	
+
+	public Set<PlayingCard> getAllCardsOnBoard(Board gameBoard) {
+		Set<PlayingCard> allCardsOnBoard = new HashSet<>();
+		for (int currentRow = 0; currentRow < gameBoard.getRow(); currentRow++) {
+			for (int currentColumn = 0; currentColumn < gameBoard.getCol(); currentColumn++){
+				allCardsOnBoard.add(gameBoard.getSingleCardInPlayingCardMatrix(gameBoard.getFullMatrix(), currentRow, currentColumn));
+			}
+		}
+		return allCardsOnBoard;
 	}
 
 //	public void setAllCardsOnBoard(Set<PlayingCard> allCardsOnBoard) {
@@ -118,6 +157,14 @@ public class InGameDynamics {
 
 	public void setCardsInGameByInGameLocation(HashMap<String, PlayingCard> cardsInGameByInGameLocation) {
 		this.cardsInGameByInGameLocation = cardsInGameByInGameLocation;
+	}
+
+	public HashMap<String, PlayingCard> getFlippedCardsInGameByInGameLocation() {
+		return flippedCardsInGameByInGameLocation;
+	}
+
+	public void setFlippedCardsInGameByInGameLocation(HashMap<String, PlayingCard> flippedCardsInGameByInGameLocation) {
+		this.flippedCardsInGameByInGameLocation = flippedCardsInGameByInGameLocation;
 	}
 
 }

@@ -7,7 +7,7 @@ public class PlayingCard {
 	private String name;
 	private String shortName;
 	private String color;
-	private boolean faceIsShowing;
+	private boolean faceIsShowing = false;
 	private String outterDisplay = "UNFLIPPEDCARD";
 
 
