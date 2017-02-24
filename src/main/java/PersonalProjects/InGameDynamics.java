@@ -77,8 +77,6 @@ public class InGameDynamics {
 		cardsInGameByInGameLocation.get(rowColString).setFaceIsShowing(true); 
 	}
 	
-	public 
-	
 	
 
 	public Set<PlayingCard> getAllCardsOnBoard(Board gameBoard) {
