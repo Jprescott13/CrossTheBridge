@@ -7,6 +7,7 @@ public class PlayingCard {
 	private String name;
 	private String shortName;
 	private String color;
+	private boolean faceIsShowing;
 	private String outterDisplay = "UNFLIPPEDCARD";
 
 
@@ -106,5 +107,14 @@ public class PlayingCard {
 	public String getOutterDisplay() {
 		return outterDisplay;
 	}
+
+	public boolean isFaceIsShowing() {
+		return faceIsShowing;
+	}
+
+	public void setFaceIsShowing(boolean faceIsShowing) {
+		this.faceIsShowing = faceIsShowing;
+	}
+
 
 }
